@@ -35,6 +35,7 @@ main .first-screen {
 }
 
 main .first-screen .setting {
+  padding-top: 100px;
   display: flex;
   justify-content: space-around;
   width: 400px;
@@ -56,6 +57,9 @@ main .first-screen h1 {
 }
 
 main .first-screen .start-btn {
+  position: absolute;
+  transform: translate(-50%);
+  z-index: 1000;
   display: inline-block;
   font-size: 50px;
   border-radius: 50%;

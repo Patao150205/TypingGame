@@ -20,10 +20,8 @@ function countUp() {
 const main = document.querySelector('main');
 const first_screen =  document.getElementById('first-screen');
 
-const limit_s = 50;
-const limit_ms = limit_s * 1000;
+let limit_ms;
 let numberOfTime = 0;
-
 let startTime;
 let clearTime;
 const words = [
@@ -37,10 +35,15 @@ const words = [
   '777',
   'Game'
 ]
-console.log(words.length)
 
 const start_btn =  document.getElementById('start-btn');
 start_btn.onclick = () => {
+  const minutes = document.getElementById('minutes').value;
+  const seconds = document.getElementById('seconds').value;
+  limit_ms = (minutes * 60000) + (seconds * 1000);
+  if (limit_ms === 0) {
+    return;
+  }
   first_screen.remove();
   main.appendChild(playing_screen);
   startTime = Date.now();
@@ -71,26 +74,26 @@ playing_screen.appendChild(characters);
 let currentKey = unTypedField.textContent.charAt(0);
 document.addEventListener('keydown',(event)=> {typeEvent(event)} );
 function typeEvent(event) {
-    if (event.key === currentKey) {
-      typedField.textContent += currentKey;
-      unTypedField.textContent = unTypedField.textContent.substring(1);
-      currentKey = unTypedField.textContent.charAt(0);
-    } 
-    if (unTypedField.textContent === '') {
-      typedField.textContent = '';
-      words.splice(NextWordIndex , 1);
-      NextWordIndex = Math.floor(Math.random() * words.length);
-      unTypedField.textContent = words[NextWordIndex];
-      currentKey = unTypedField.textContent.charAt(0);
-      numberOfTime++;
-      console.log(numberOfTime);
-      if (numberOfTime === 3) {
-        document.removeEventListener('keydown',(event)=> {typeEvent(event)} );
-        playing_screen.remove();
-        clearInterval(clearTime);
-        setClear();
-      }
+  if (event.key === currentKey) {
+    typedField.textContent += currentKey;
+    unTypedField.textContent = unTypedField.textContent.substring(1);
+    currentKey = unTypedField.textContent.charAt(0);
+  } 
+  if (unTypedField.textContent === '') {
+    typedField.textContent = '';
+    words.splice(NextWordIndex , 1);
+    NextWordIndex = Math.floor(Math.random() * words.length);
+    unTypedField.textContent = words[NextWordIndex];
+    currentKey = unTypedField.textContent.charAt(0);
+    numberOfTime++;
+    console.log(numberOfTime);
+    if (numberOfTime === 3) {
+      document.removeEventListener('keydown',(event)=> {typeEvent(event)} );
+      playing_screen.remove();
+      clearInterval(clearTime);
+      setClear();
     }
+  }
 }
 
 function setGameOver() {

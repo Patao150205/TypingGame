@@ -29,6 +29,7 @@ main {
   .first-screen {
     margin-top: 100px;
     .setting {
+      padding-top: 100px;
       display: flex;
       justify-content: space-around;
       width: 400px;
@@ -47,6 +48,9 @@ main {
       user-select: none;
     }
     .start-btn {
+      position: absolute;
+      transform: translate(-50%);
+      z-index: 1000;
       display: inline-block;
       font-size: 50px;
       border-radius: 50%;
