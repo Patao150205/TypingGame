@@ -1,0 +1,77 @@
+body {
+  background: url(img/kazino.jpg);
+  background-position: center;
+  height: 100vh;
+}
+
+main {
+  text-align: center;
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px black solid;
+  background: #ccc;
+}
+
+main .timer {
+  font-size: 40px;
+  user-select: none;
+}
+
+main .chracters {
+  user-select: none;
+  font-size: 80px;
+}
+
+main .chracters .typed {
+  color: red;
+}
+
+main .first-screen {
+  margin-top: 100px;
+}
+
+main .first-screen .setting {
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  margin: 0 auto;
+}
+
+main .first-screen .setting .num {
+  display: block;
+  width: 100px;
+  height: 30px;
+  outline: none;
+}
+
+main .first-screen h1 {
+  font-family: 'Bangers', cursive;
+  color: #e61e1e;
+  font-size: 80px;
+  user-select: none;
+}
+
+main .first-screen .start-btn {
+  display: inline-block;
+  font-size: 50px;
+  border-radius: 50%;
+  padding: 20px;
+  font-weight: 500;
+  box-shadow: 0 10px 5px;
+  background: #ece509;
+  cursor: pointer;
+  user-select: none;
+}
+
+main .first-screen .start-btn:hover {
+  background: #dcd618;
+}
+
+main .first-screen .start-btn:active {
+  margin-top: 5px;
+  box-shadow: 0 5px 5px;
+}
